@@ -14,6 +14,7 @@ class MyService : Service() {
     override fun onCreate() {
         super.onCreate()
         myMedia = MediaPlayer.create(this, R.raw.trentinhbanduoitinhyeu)
+        //lap lại bài hát
         myMedia?.isLooping = true
     }
 
