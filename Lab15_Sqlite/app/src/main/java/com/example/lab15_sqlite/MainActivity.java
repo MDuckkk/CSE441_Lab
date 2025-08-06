@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String malop = editTextNumber.getText().toString().trim();
-                String tenlop = editTextText.getText().toString().trim();
-                int siso = Integer.parseInt(editTextText2.getText().toString().trim());
+                String malop = editTextText.getText().toString().trim();
+                String tenlop = editTextText2.getText().toString().trim();
+                int siso = Integer.parseInt(editTextNumber.getText().toString().trim());
                 ContentValues values = new ContentValues();
                 values.put("malop", malop);
                 values.put("tenlop", tenlop);
@@ -100,22 +100,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Xử lý nút Query
-        btnQuery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mylist.clear();
-                Cursor c = myDatabase.query("tbllop", null, null, null, null, null, null);
-                if (c.moveToFirst()) {
-                    do {
-                        String item = c.getString(c.getColumnIndexOrThrow("malop")) + " - "
-                                + c.getString(c.getColumnIndexOrThrow("tenlop")) + " - "
-                                + c.getInt(c.getColumnIndexOrThrow("siso"));
-                        mylist.add(item);
-                    } while (c.moveToNext());
-                }
-                c.close();
-                myAdapter.notifyDataSetChanged();
+        btnQuery.setOnClickListener(v -> {
+            mylist.clear();
+            Cursor c = myDatabase.query("tbllop", null, null, null, null, null, null);
+            if (c.moveToFirst()) {
+                do {
+                    String item = c.getString(c.getColumnIndexOrThrow("malop"))
+                            + " - " + c.getString(c.getColumnIndexOrThrow("tenlop"))
+                            + " - " + c.getInt(c.getColumnIndexOrThrow("siso"));
+                    mylist.add(item);
+                } while (c.moveToNext());
             }
+            c.close();
+            myAdapter.notifyDataSetChanged();
         });
     }
 }
