@@ -1,0 +1,36 @@
+<!-- app/src/main/res/layout/listitem.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:padding="12dp" android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txtmaso"
+        android:textStyle="bold"
+        android:textColor="#1E88E5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="52300"
+        android:paddingEnd="12dp"/>
+
+    <TextView
+        android:id="@+id/txttieude"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Em là ai Tôi là ai"/>
+
+    <FrameLayout
+        android:layout_width="40dp"
+        android:layout_height="40dp">
+        <ImageButton
+            android:id="@+id/btnlike"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+        <ImageButton
+            android:id="@+id/btnunlike"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+    </FrameLayout>
+</LinearLayout>
